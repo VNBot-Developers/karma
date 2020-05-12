@@ -1,0 +1,35 @@
+{
+  "name": "karma",
+  "version": "1.0.0",
+  "description": "New bot use redis cache and something bla bla,...",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VNBot-Developers/karma.git"
+  },
+  "keywords": [
+    "bot",
+    "redis",
+    "facbook",
+    "karma"
+  ],
+  "author": "Notekunn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VNBot-Developers/karma/issues"
+  },
+  "homepage": "https://github.com/VNBot-Developers/karma#readme",
+  "devDependencies": {
+    "mocha": "^7.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "redis": "^3.0.2"
+  }
+}
