@@ -7,5 +7,6 @@ module.exports = {
     bot: {
         prefix: process.env.BOT_PREFIX || '',
         name: process.env.BOT_NAME || 'Annie',
-    }
+    },
+    admins: [100009859624773],
 }
