@@ -5,7 +5,7 @@ const messageReactionHandler = require('./message_reaction');
 class Handler extends EventEmitter {
     constructor(api) {
         super();
-        this.api = api
+        this.api = api;
         this.on('message', messageHandler);
         this.on('message_event', messageEventHandler);
         this.on('message_reaction', messageReactionHandler);
