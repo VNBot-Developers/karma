@@ -20,6 +20,7 @@ module.exports = (op) => new Promise(function (resolve, reject) {
             }
             const errorMessage = errorMessageHandler(err);
             reject(errorMessage);
+            return;
         }
         api.setOptions(options);
         resolve(api)
