@@ -33,6 +33,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "facebook-chat-api": "^1.8.0",
+    "mongoose": "^5.9.13",
     "redis": "^3.0.2"
   }
 }
