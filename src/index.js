@@ -1,13 +1,13 @@
 const { resolve } = require("path");
+require('dotenv').config({
+    path: resolve(__dirname, '../', '.env')
+});
 const mongoose = require('mongoose');
 const login = require("./login");
 const fs = require('fs');
 const Handler = require('./events');
 const redis = require('redis');
-require('dotenv').config({
-    path: resolve(__dirname, '../', '.env')
-});
-
+const { promisify } = require("util");
 
 
 const { email, password, pathAppState } = require("./config");
@@ -40,12 +40,14 @@ const cacheClient = redis.createClient({
     password: process.env.REDIS_PASSWORD || null,
 
 });
+
+cacheClient.getAsync = promisify(cacheClient.get).bind(cacheClient);
 cacheClient.on("error", function (error) {
     console.log(error.stack);
 });
 login(email, password, appState, function (error, api) {
     if (error) return console.log(error);
-    const handler = new Handler(api);
+    const handler = new Handler(api, cacheClient);
     api.listenMqtt(function (error, event) {
         if (error) return console.log(error);
         switch (event.type) {
