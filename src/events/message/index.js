@@ -27,5 +27,14 @@ module.exports = function (event) {
         api.sendMessage(`Nhập email: `, threadID);
         cacheClient.set(`prompt_${senderID}_${threadID}_step`, 'email_prompt_1')
     }
+    if (contentMessage == `${prefix}linh`) {
+        api.createPoll("Linh có xinh không? ", threadID, {
+            "Không": false,
+            "Có": true
+        }, (err) => {
+            if (err) return console.log(err.stack)
+        });
+        return;
+    }
     // console.log(this);
 }
