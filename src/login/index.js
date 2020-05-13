@@ -6,7 +6,7 @@ module.exports = async function (email, password, appState, callback) {
     let api;
     try {
         api = await login({ appState }).catch(() => login({ email, password }));
-        fs.writeFileSync(pathAppState, api.getAppState())
+        fs.writeFileSync(pathAppState, JSON.stringify(api.getAppState(), null, '\t'))
         callback(undefined, api);
     }
     catch (e) {

@@ -16,16 +16,16 @@ describe('Facebook', function () {
 
         this.timeout(20 * 1000);
         it('Login with email password', function (done) {
-            
-            login(this.appState, this.email, this.password, function (error, api) {
+            console.log(this.email, this.password);
+            login(this.email, this.password, this.appState, function (error, api) {
                 if (error) console.log(error) && done(error);
                 done();
             })
         });
 
-        it('Login with appstate', function () {
+        it('Login with appstate', function (done) {
             this.appState = require(pathAppState);
-            login(this.appState, "", "", function (error, api) {
+            login(this.email, this.password, this.appState, function (error, api) {
                 if (error) console.log(error) && done(error);
                 done();
             })
