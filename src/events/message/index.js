@@ -29,8 +29,8 @@ module.exports = function (event) {
     }
     if (contentMessage == `${prefix}linh`) {
         api.createPoll("Linh có xinh không? ", threadID, {
-            "Không": false,
-            "Có": true
+            "Có": true,
+            "Tất nhiên": true
         }, (err) => {
             if (err) return console.log(err.stack)
         });

@@ -1,30 +1,31 @@
 {
-    "name": "KARMA Bot",
-    "description": "New bot use redis cache and something bla bla,...",
-    "repository": "https://github.com/VNBot-Developers/karma.git",
-    "website": "https://github.com/VNBot-Developers/karma",
-    "env": {
-      "REDIS_HOST": {
-        "description": "Your redis host.",
-        "value": "127.0.0.1"
-      },
-      "REDIS_PORT": {
-        "description": "Your redis port.",
-        "value": "6379"
-      },
-      
-      "REDIS_PASSWORD": {
-        "description": "Your redis password.",
-        "value": ""
-      }
+  "name": "KARMA Bot",
+  "description": "New bot use redis cache and something bla bla,...",
+  "repository": "https://github.com/VNBot-Developers/karma.git",
+  "website": "https://github.com/VNBot-Developers/karma",
+  "env": {
+    "REDIS_HOST": {
+      "description": "Your redis host.",
+      "value": "127.0.0.1"
     },
-    "formation": {
-      "web": {
-        "quantity": 1,
-        "size": "free"
-      }
+    "REDIS_PORT": {
+      "description": "Your redis port.",
+      "value": "6379"
     },
-    "buildpacks": [
-      {"url": "https://github.com/maximkulkin/heroku-buildpack-dummy.git"}
-    ]
-  }
+    "REDIS_PASSWORD": {
+      "description": "Your redis password.",
+      "value": ""
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/maximkulkin/heroku-buildpack-dummy.git"
+    }
+  ]
+}
