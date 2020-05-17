@@ -8,10 +8,11 @@ const { pathAppState } = require("../src/config");
 const login = require('../src/login');
 describe('Facebook', function () {
     this.beforeAll(function () {
+        this.skip();
         this.email = process.env.FACEBOOK_EMAIL;
         this.password = process.env.FACEBOOK_PASSWORD;
         this.appState = {};
-    })
+    })// all suite will be skipped
     describe('Login', function () {
 
         this.timeout(20 * 1000);

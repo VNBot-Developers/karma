@@ -1,4 +1,5 @@
 src/appState.json
+**/temp/*
 # Logs
 logs
 *.log
