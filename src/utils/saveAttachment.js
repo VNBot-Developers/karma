@@ -1,15 +1,22 @@
+const md5 = require("md5");
+const fileType = require('file-type');
 const axios = require('axios').default;
 const fs = require('fs');
 const { resolve } = require('path');
-
-module.exports = function (url) {
-    const path = resolve(__dirname, './temp', 'image.jpg');
-    axios({
+const tempPath = resolve(__dirname, '../temp');
+if (!fs.existsSync(tempPath)) {
+    fs.mkdirSync(tempPath);
+}
+module.exports = async function (url) {
+    const response = await axios({
         url,
         method: 'get',
-        responseType: 'buffer'
-    }).then(function (response) {
-        fs.writeFileSync(path, response)
-    });
-
+        responseType: 'arraybuffer'
+    })
+    const buffer = Buffer.from(response.data, 'base64');
+    let { ext, mime } = await fileType.fromBuffer(buffer);
+    if (!['audio', 'image', 'video'].includes(mime.split('/')[0])) return Promise.reject('Only support audio, image, video file');    
+    const path = resolve(tempPath, `${md5(url).slice(0, 12)}.${ext}`);
+    fs.writeFileSync(path, buffer)
+    return path;
 }

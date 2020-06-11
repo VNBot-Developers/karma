@@ -1,4 +1,5 @@
 const { bot: { prefix, name: botName }, development } = require("../../config");
+const saveAttachment = require('../../utils/saveAttachment');
 module.exports = function (event) {
     if (development) console.log("Message", event);
     const { body, senderID, threadID } = event;
@@ -35,6 +36,11 @@ module.exports = function (event) {
             if (err) return console.log(err.stack)
         });
         return;
+    }
+    if (contentMessage == `${prefix}image`) {
+        // api.sendMessage({
+        //     body: 
+        // })
     }
     // console.log(this);
 }

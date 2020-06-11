@@ -12,7 +12,15 @@ class Handler extends EventEmitter {
         this.on('message_event', messageEventHandler);
         this.on('message_reaction', messageReactionHandler);
     }
-
+    makeCustom(){
+        this.api = new Proxy(this.api, {
+            get(target, prop, receiver){
+                console.log(prop, receiver)
+                // if (prop === 'sendMessage') return target[prop].toUpperCase()
+                return target[prop]
+            }
+        })
+    }
     makePromptStepKey(senderId, threadId){
         return `prompt_${senderID}_${threadID}step`;
     }
