@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/VNBot-Developers/karma)
+
 <h1 align="center">
   <br>
   <a href="#"><img src="https://imgur.com/pY1WUFX.png" alt="Karma bot"></a>
