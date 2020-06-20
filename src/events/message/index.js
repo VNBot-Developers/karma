@@ -7,7 +7,7 @@ module.exports = function (event) {
     const { api, cacheClient } = this;
     cacheClient.get(`prompt_${senderID}_${threadID}_step`, function name(error, step) {
         if (error) return;
-        console.log(`prompt_${senderID}_${threadID}_step`, step)
+        // console.log(`prompt_${senderID}_${threadID}_step`, step)
         switch (step) {
             case 'email_prompt_1':
 
@@ -41,6 +41,16 @@ module.exports = function (event) {
         // api.sendMessage({
         //     body: 
         // })
+        Promise.all([
+            saveAttachment("https://i.imgur.com/dfxm1KO.jpg"),
+            saveAttachment("https://i.imgur.com/dfxm1KO.jpg")])
+            .then(path => {
+
+                api.sendAttachment({
+                    body: "Hi",
+                    attachment: path
+                }, threadID)
+            })
     }
     // console.log(this);
 }
